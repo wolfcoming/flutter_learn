@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/http/request/learnWidget/learn_widget.dart';
 import 'package:flutter_app/http/request/net_test.dart';
 
 void main() {
@@ -13,9 +14,18 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      home: getTestWidget(),
     );
   }
+
+  Widget getTestWidget(){
+    return Scaffold(
+      appBar: AppBar(title: Center(child: Text("测试界面"),),),
+      body: CustomItem(),
+    );
+  }
+
 }
 
 class MyHomePage extends StatelessWidget {
