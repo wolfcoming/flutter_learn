@@ -1,16 +1,31 @@
 import 'dart:ui';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+class ArticleListView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: 20,
+        itemBuilder: (BuildContext context, int index) {
+      return CustomItem();
+    });
+  }
+}
+
 
 class CustomItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+        child: Padding(
       child: PhysicalModel(
         color: Colors.transparent,
         clipBehavior: Clip.antiAlias,
         borderRadius: BorderRadius.circular(8),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -43,33 +58,33 @@ class CustomItem extends StatelessWidget {
                   Container(
                     child: Expanded(
                         child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 4),
-                          child: Column(
-                            children: [
-                              Text(
-                                "示例项目： 组件化、模块单独运行模块单独运行模块单独运行模块单独运行模块单独运行模块单独运行模块单独运行模块单独运行",
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              Container(
-                                margin: EdgeInsets.only(top: 4),
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Text("开源项目主Tab"),
-                                    Text("/未分类"),
-                                    Expanded(
-                                      child: Container(
-                                        child: Icon(Icons.favorite_border),
-                                        alignment: Alignment.centerRight,
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
+                      padding: EdgeInsets.symmetric(horizontal: 4),
+                      child: Column(
+                        children: [
+                          Text(
+                            "示例项目： 组件化、模块单独运行模块单独运行模块单独运行模块单独运行模块单独运行模块单独运行模块单独运行模块单独运行",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
                           ),
-                        )),
+                          Container(
+                            margin: EdgeInsets.only(top: 4),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Text("开源项目主Tab"),
+                                Text("/未分类"),
+                                Expanded(
+                                  child: Container(
+                                    child: Icon(Icons.favorite_border),
+                                    alignment: Alignment.centerRight,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )),
                   )
                 ],
               ),
@@ -77,9 +92,9 @@ class CustomItem extends StatelessWidget {
           ],
         ),
       ),
-    );
+      padding: EdgeInsets.all(4),
+    ));
   }
-
 
   Widget getTagWidget(String msg) {
     return Container(

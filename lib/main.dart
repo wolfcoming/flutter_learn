@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/http/request/learnWidget/learn_widget.dart';
 import 'package:flutter_app/http/request/net_test.dart';
+import 'package:flutter_app/http/request/test/test_entry.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,15 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: MyHomePage(),
-      home: getTestWidget(),
-    );
-  }
-
-  Widget getTestWidget(){
-    return Scaffold(
-      appBar: AppBar(title: Center(child: Text("测试界面"),),),
-      body: CustomItem(),
+      home: MyHomePage(),
     );
   }
 
@@ -33,9 +26,24 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("测试")),
+        title: Center(child: Text("首页")),
       ),
-      body: NetTestPage(),
+      body: Stack(
+        children: [
+          Positioned(
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return TestEntry();
+                }));
+              },
+              child: Text("测试入口"),
+            ),
+            bottom: 40,
+            left: 20,
+          )
+        ],
+      ),
     );
   }
 }
