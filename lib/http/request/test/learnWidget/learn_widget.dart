@@ -6,14 +6,18 @@ import 'package:flutter/material.dart';
 class ArticleListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: 20,
-        itemBuilder: (BuildContext context, int index) {
-      return CustomItem();
-    });
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("测试界面"),
+      ),
+      body: ListView.builder(
+          itemCount: 20,
+          itemBuilder: (BuildContext context, int index) {
+            return CustomItem();
+          }),
+    );
   }
 }
-
 
 class CustomItem extends StatelessWidget {
   @override

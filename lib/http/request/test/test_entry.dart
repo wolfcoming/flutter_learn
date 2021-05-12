@@ -1,11 +1,13 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/http/request/learnWidget/learn_widget.dart';
-import 'package:flutter_app/http/request/net_test.dart';
+import 'package:flutter_app/http/request/test/net_test.dart';
+
+import 'learnWidget/learn_widget.dart';
 
 class TestEntry extends StatelessWidget {
   var hashMap = HashMap();
+
   @override
   Widget build(BuildContext context) {
     hashMap["widget实战页"] = ArticleListView();
@@ -17,17 +19,18 @@ class TestEntry extends StatelessWidget {
           child: Text("测试入口"),
         ),
       ),
-      body: ListView.separated(
+      body: ListView.builder(
           itemBuilder: (BuildContext context, int index) {
             var key = keys[index];
-            return hashMap[key];
+            return ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return hashMap[key];
+                  }));
+                },
+                child: Text(key));
           },
-          separatorBuilder: SeparatorLine,
-          itemCount: hashMap.length),
+          itemCount: keys.length),
     );
-  }
-
-  Widget SeparatorLine(BuildContext context,int index){
-    return  Container(height: 0.2, width: 1000, color: Colors.grey);
   }
 }

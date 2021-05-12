@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/http/request/learnWidget/learn_widget.dart';
-import 'package:flutter_app/http/request/net_test.dart';
+import 'package:flutter_app/http/request/test/net_test.dart';
 import 'package:flutter_app/http/request/test/test_entry.dart';
 
 void main() {
